@@ -55,6 +55,13 @@ h1, h2 {
   border-radius: 10px;
 }
 
+.fotoCarrito {
+  width: 4vmax;
+  height: 4vmax;
+  border-radius: 3px;
+  margin: 0.5vmax;
+}
+
 .item-carrito {
   display: flex;
   justify-content: space-between;

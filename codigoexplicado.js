@@ -53,6 +53,8 @@ function agregarAlCarrito(productId) {
     para identificar que producto agraga al carrito*/
     const producto = productos.find(p => p.id === productId);
     carrito.push(producto);
+    /* guardar carrito en localStorage */
+    guardarCarritoEnLocalStorage();
     /* una vez agregado, necesito mostrarlo */
     mostrarCarrito();
 }
