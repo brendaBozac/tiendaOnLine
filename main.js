@@ -4,17 +4,9 @@ const productosDiv = document.getElementById('productos');
 const carritoDiv = document.getElementById('carrito');
 const totalDiv = document.getElementById('total');
 
-/* const productos = [
-    { id: 1, nombre: 'Producto 1', precio: 10, imagen: 'zapa1.jpg'},
-    { id: 2, nombre: 'Producto 2', precio: 20, imagen: 'zapa2.jpg'},
-    { id: 3, nombre: 'Producto 3', precio: 30, imagen: 'zapa6.jpg'},
-    { id: 4, nombre: 'Producto 4', precio: 40, imagen: 'zapa4.jpg'},
-    { id: 5, nombre: 'Producto 5', precio: 50, imagen: 'zapa5.jpg'},
-    { id: 6, nombre: 'Producto 6', precio: 60, imagen: 'zapa3.jpg'}
-]; */
-
 let carrito = [];
 let productos = [];
+let total = 0;
 
 /* aqui lo que hago es vincular estas funciones js al archivo json */
 
@@ -37,33 +29,21 @@ async function cargarProductos() {
 }
 
 function mostrarProductos() {
- 
-  productos.forEach( (producto) => {
+
+  productos.forEach((producto) => {
     const productoDiv = document.createElement('div');
     productoDiv.classList.add('producto');
 
-    productoDiv.innerHTML = 
-    `<img src="imagenes/${producto.imagen}" class="fotozapa" alt="foto zapatilla">
+    productoDiv.innerHTML =
+      `<img src="imagenes/${producto.imagen}" class="fotozapa" alt="foto zapatilla">
     <span>${producto.nombre} - $${producto.precio}</span>
     <button onclick="agregarAlCarrito(${producto.id})">Agregar</button>`;
 
     productosDiv.appendChild(productoDiv);
-    
+
   });
 }
 
-/* 
-function agregarAlCarrito(productId) {
-  
-    const producto = productos.find(p => p.id === productId);
-    carrito.push(producto); */
-    
-    /* guardar carrito en localStorage */
-   /*  guardarCarritoEnLocalStorage();
-
-    mostrarCarrito();
-}
- */
 
 function agregarAlCarrito(productId) {
   const producto = productos.find(p => p.id === productId);
@@ -80,26 +60,9 @@ function agregarAlCarrito(productId) {
   mostrarCarrito();
 }
 
-/* 
-function mostrarCarrito() {
 
+function mostrarCarrito() {
   carritoDiv.innerHTML = '';
-  carrito.forEach((item, index) => {
-    const itemDiv = document.createElement('div');
-
-    itemDiv.classList.add('item-carrito');
-    itemDiv.innerHTML = `<span>${item.nombre} - $${item.precio}</span>
-    <button onclick="eliminarDelCarrito(${index})">Eliminar</button> `; 
-
-    carritoDiv.appendChild(itemDiv);
-  });
-  mostrarTotal();
-  mostrarBoton();
-}
- */
-
-function mostrarCarrito() {
-  carritoDiv.innerHTML = ''; 
   carrito.forEach((item, index) => {
     const itemDiv = document.createElement('div');
     itemDiv.classList.add('item-carrito');
@@ -127,36 +90,109 @@ function mostrarCarrito() {
 
 function mostrarBoton() {
   if (carrito.length > 0 && !document.getElementById('botonComprar')) {
-  const botonComprar = document.createElement('button');
-  botonComprar.textContent = 'Comprar';
-  botonComprar.id = 'botonComprar';
-  botonComprar.className = 'botonComprar';
+    const botonComprar = document.createElement('button');
+    botonComprar.textContent = 'Comprar';
+    botonComprar.id = 'botonComprar';
+    botonComprar.className = 'botonComprar';
 
 
-  botonComprar.addEventListener('click', () => {
-    alert('tu pedido esta en camino!!!');
-    vaciarCarrito();
-    localStorage.removeItem('carrito');
-  });
+    botonComprar.addEventListener('click', () => {
 
-  
 
-  contenedor.appendChild(botonComprar);
+      let carritoHTML = '';
+        carrito.forEach(item => {
+          carritoHTML += `
+          <div class="item-compra">
+            <p>${item.nombre} - $${item.precio} x ${item.cantidad} unidades = $${item.precio * item.cantidad}</p>
+          </div>
+          `;
+        });
+
+      contenedor.innerHTML =  `
+      <div id="contenedor">
+        <h2>Gran Elección!</h2>
+
+        <h3>El monto Total por tu compra es de: $${total};
+        <h3>Detalle de Facturación</h3>
+        <p>${carritoHTML}</p>
+        <h3>Completa los siguientes Datos</h3>
+
+        <form id="purchase-form">
+            <div class="form-group">
+                <label for="firstName">Nombre:</label>
+                <input type="text" id="firstName" name="firstName" value="Juan">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Apellido:</label>
+                <input type="text" id="lastName" name="lastName" value="Pérez">
+            </div>
+            <div class="form-group">
+                <label for="creditCardNumber">Número de Tarjeta de Crédito:</label>
+                <input type="text" id="creditCardNumber" name="creditCardNumber" value="1234 5678 9012 3456">
+            </div>
+
+            <button id='botonPagar' type="button" class="btn-submit" onclick='confirmarPago()'>Pagar</button>
+        </form>
+      
+      `;
+
+      /* esto ayuda a que cuando refresca la pagina lleve el foco al 
+      centro de la pagina y no al footer pr ejmp */
+      const facturacion = document.getElementById('contenedor');
+      if (facturacion) {
+        facturacion.scrollIntoView({ block: 'center' });
+
+    
+      const pagar = document.getElementById('botonPagar');
+      pagar.addEventListener('click', confirmarPago);
+      
+      }
+
+
+
+    });
+
+    
+
+
+    contenedor.appendChild(botonComprar);
 
   }
   else if (carrito.length === 0 && document.getElementById('botonComprar')) {
     document.getElementById('botonComprar').remove();
-    
-}
+
+  }
 }
 
-/* 
-function eliminarDelCarrito(index) {
-  carrito.splice(index, 1);
-  mostrarCarrito();
-  guardarCarritoEnLocalStorage();
 
-} */
+function confirmarPago() {
+
+  sweetAlert();
+  vaciarCarrito();
+  localStorage.removeItem('carrito');
+  
+
+  
+
+}
+
+function sweetAlert() {
+  
+  Swal.fire({
+    position: "top-center",
+    icon: "success",
+    title: "Your work has been saved",
+    showConfirmButton: false,
+    timer: 2000
+  });
+
+
+  setTimeout(()=> {
+    window.location.href = window.location.href; 
+  }, 2000
+
+  );
+}
 
 function eliminarDelCarrito(productId) {
   carrito = carrito.filter(item => item.id !== productId);
@@ -170,46 +206,24 @@ function vaciarCarrito() {
   localStorage.removeItem('carrito');
 }
 
-/* 
+
+// Mostrar el total definitivo sumando los subtotales de cada producto
 function mostrarTotal() {
-  const total = carrito.reduce((sum, item) => sum + item.precio, 0);
-  totalDiv.innerHTML = `Total: $${total}`; */
-  // Agregar clase CSS para el margen
- /*  totalDiv.classList.add('total-margin');  
-} */
-
-
-/* 
- function mostrarTotal() {
-  const total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+  total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
   totalDiv.innerHTML = `Total: $${total}`;
-  // Agregar clase CSS para el margen
+  let navTotal = document.getElementById('montoTotal');
+  navTotal.textContent = `Monto Total $${total}`;
+
+  let cantidadNav = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+  let contadorCantidad = document.getElementById('spanCantidad');
+  contadorCantidad.textContent = `${cantidadNav}`;
+
   totalDiv.classList.add('total-margin');
-} */
 
 
-  // Mostrar el total definitivo sumando los subtotales de cada producto
-function mostrarTotal() {
-  const total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
-  totalDiv.innerHTML = `Total: $${total}`;
-  totalDiv.classList.add('total-margin');
+
 }
 
-
-/* 
-function actualizarCantidad(productId, cantidad) {
-  const producto = carrito.find(p => p.id === productId);
-  if (producto) {
-    producto.cantidad = parseInt(cantidad);
-    if (producto.cantidad <= 0) {
-      eliminarDelCarrito(productId);
-    } else {
-      guardarCarritoEnLocalStorage();
-      mostrarCarrito();
-    }
-  }
-}
- */
 
 function actualizarCantidad(productId, cantidad) {
   const producto = carrito.find(p => p.id === productId);
@@ -236,6 +250,7 @@ function cargarCarritoDeLocalStorage() {
     mostrarCarrito();
   }
 }
+
 
 
 

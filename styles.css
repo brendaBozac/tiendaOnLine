@@ -1,21 +1,95 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 
 body {
   font-family: Arial, sans-serif;
   background-color: #1a1717;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+  flex-flow: column wrap;
+  width: 100%;
+
   }
   
-.container {
+
+.fotoNav {
+  width: 15vmax;
+  margin: 0;
+  padding: 0;
+}
+
+.navCarrito {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.spanCantidad {
+  border-radius: 50%;
+  color: white;
+  background-color: rgb(120, 16, 16);
+  font-size: 1vmax;
+  padding: 0.5vmax;
+
+}
+
+.bi-cart2 {
+  font-size: 1vmax;
+} 
+
+.navMonto {
+  margin: 1vmax;
+}
+
+header {
+  height:40vmax;
+  background-image: url(/imagenes/fondoHeader.png);
+  background-position: center center;
+  background-size: cover;
+  padding-top: 10vmax;
+
+}
+
+.titulosHeader {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulosHeader span {
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 0 2vmax;
+}
+
+.titulosHeader h1 {
+  font-weight: bold;
+  font-size: 8vmax;
+  line-height: 0.8;
+ /*  text-align: left; */
+}
+
+.titulosHeader h2 {
+  font-size: 1.5vmax;
+  font-weight: bold;
+}
+
+.divImgHeader img {
+  width: 50vmax;
+  filter: drop-shadow(12px 3px 8px rgba(0, 0, 0, 0.665));
+}
+
+.container2 {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 60vmax;
+  width: 70%;
   margin: 6rem 3rem;
 
 }
@@ -34,6 +108,7 @@ h1, h2 {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  
 }
 
 .producto {
@@ -64,12 +139,13 @@ h1, h2 {
 
 .item-carrito {
   display: flex;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: space-around;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 10px;
-}
+} 
 
 button {
   padding: 10px 15px;
@@ -87,4 +163,42 @@ button:hover {
 
 .total-margin {
   margin-top: 20px; 
+}
+
+
+.pieDePagina {
+  background-color: black;
+  /* height: 35vmax; */
+  width: 100%;
+}
+
+.columnaLogoFooter {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+}
+
+.logoFooter {
+  width: 20vmax;
+  margin: 5vmax;
+ 
+}
+
+.textosFooter {
+  color: white;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+} 
+
+.rowFooter {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.derechos {
+  margin-bottom: 1vmax;
 }
