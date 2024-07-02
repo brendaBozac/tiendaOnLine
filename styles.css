@@ -46,7 +46,7 @@ body {
 
 header {
   height:40vmax;
-  background-image: url(./imagenes/fondoHeader.png);
+  background-image: url(imagenes/fondoHeader.png);
   background-position: center center;
   background-size: cover;
   padding-top: 10vmax;
