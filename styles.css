@@ -471,6 +471,9 @@ MEDIAS QUERIES
   header {
     height: 45vmax;
     margin-top: 12vmax;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   
