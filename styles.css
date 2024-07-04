@@ -13,7 +13,6 @@ font-family: "Bebas Neue", sans-serif;
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #1a1717;
   background-image: url(imagenes/bodyDos.jpg);
   background-position: center center;
   background-size: cover;
@@ -132,7 +131,7 @@ header {
 
 .container2 {
   background-color: #ffffffe4;
-  padding: 20px;
+  padding: 4vmax;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 75%;
@@ -206,14 +205,46 @@ header {
   background-color: rgb(212, 127, 82);
 } 
 
-.item-carrito img {
-  width: 3vmax;
+.primerBloque {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  
 }
 
+.segundoBloque {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.item-carrito img {
+  width: 4.5vmax;
+  border-radius: 5px;
+}
+
+.inputCantidadDiv {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  padding: 3px;
+}
+
+.inputCantidad {
+  border: 2px solid rgba(0, 0, 0, 0.887);
+  border-radius: 5px;
+  padding: 2px 5px;
+}
 
 .item-carrito input {
   min-width: 25px;
   max-width: 60px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .item-carrito p {
@@ -231,15 +262,29 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  /* margin-top: 6px; */
+  
 }
+
+
 
 button:hover {
   background-color: #0056b3;
 }
 
+
+.botonEliminar {
+  width: 15%;
+
+}
+
+
 .total-margin {
   margin-top: 20px; 
+  font-size: 2vmax;
+  font-family: "Bebas Neue", sans-serif;
+  color: rgb(27, 26, 26);
+  padding-top: 1vmax;
+
 }
 
 
@@ -354,6 +399,17 @@ MEDIAS QUERIES
     padding-top: 1vmax;
   }
 
+  .botonEliminar {
+    width: 20%;
+    margin-left: 70%;
+    
+  
+  }
+ 
+  
+  .item-carrito img {
+    width: 6vmax;
+  }
 
 
 }
@@ -386,6 +442,10 @@ MEDIAS QUERIES
   .fotozapa {
     width: 30vmax;
   }
+
+  .item-carrito img {
+    width: 8vmax;
+  }
   
 }
 
@@ -397,7 +457,8 @@ MEDIAS QUERIES
     height: 45vmax;
     margin-top: 12vmax;
   }
- 
+
+  
 }
 
 
@@ -472,6 +533,12 @@ MEDIAS QUERIES
   .fotozapa {
     width: 45vmax;
   }
+
+  
+.botonEliminar {
+  width: 30%;
+
+}
 }
 
 
@@ -499,6 +566,13 @@ MEDIAS QUERIES
   .fotozapa {
     width: 30vmax;
   }
+
+   
+.botonEliminar {
+  width: 50%;
+  padding: 4px 6px;
+
+}
 }
 
 @media (max-width: 319.98px) {

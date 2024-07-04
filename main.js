@@ -66,6 +66,7 @@ function mostrarCarrito() {
   carrito.forEach((item, index) => {
     const itemDiv = document.createElement('div');
     itemDiv.classList.add('item-carrito');
+    itemDiv.classList.add('row');
 
     
     // Mostrar subtotal para cada tipo de producto
@@ -73,14 +74,19 @@ function mostrarCarrito() {
     // itemDiv.classList.add('row');
     const subtotal = item.precio * item.cantidad;
     itemDiv.innerHTML = `
-      <img src="imagenes/${item.imagen}" class="fotoCarrito carItem" alt="foto zapatilla">
-      <p>${item.nombre}</p>
-      <p>$${item.precio}</p>
-      <p> x ${item.cantidad} unid.</p>
-      
-      <input type="number" class="carItem" min="1" value="${item.cantidad}" onchange="actualizarCantidad(${item.id}, this.value)">
-      <p>Subtotal: $${subtotal}</p>
-      <button class="carItem" onclick="eliminarDelCarrito(${item.id})">Eliminar</button>
+      <div class="primerBloque col-md-5 col-lg-5">
+        <img src="imagenes/${item.imagen}" class="fotoCarrito" alt="foto zapatilla">
+        <p>${item.nombre}</p>
+        <p>$${item.precio}</p>
+      </div>
+      <div class="segundoBloque col-md-6 col-lg-5">
+        <div class="inputCantidadDiv">
+          <input type="number" class="inputCantidad" min="1" value="${item.cantidad}" onchange="actualizarCantidad(${item.id}, this.value)">
+          <p> x ${item.cantidad} unid.</p>
+        </div>
+        <p>Subtotal: $${subtotal}</p>
+      </div>  
+      <button class="col-md-2 col-lg-2 botonEliminar" onclick="eliminarDelCarrito(${item.id})">Eliminar</button>
     `;
 
     carritoDiv.appendChild(itemDiv);
