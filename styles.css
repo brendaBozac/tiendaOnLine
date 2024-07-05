@@ -108,11 +108,12 @@ header {
 
 .titulosHeader h2 {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 2vmax;
+  font-size: 1.8vmax;
   margin: 0;
   padding-bottom: 0.5vmax;
   border-bottom: solid 2px rgba(0, 0, 0, 0.88);
   color: black;
+  text-align: left;
 }
 
 .divImgHeader {
@@ -128,6 +129,8 @@ header {
 
 
 
+/* contenedor central */
+
 
 .container2 {
   background-color: #ffffffe4;
@@ -135,7 +138,7 @@ header {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 75%;
-  margin: 6rem 3rem;
+  margin: 6rem auto;
 
 }
 
@@ -144,11 +147,9 @@ header {
   text-align: center;
   font-family: "Russo One", sans-serif;
   font-weight: bold;
-  font-size: 3.5vmax;
+  font-size: 3vmax;
   
 }
-
-
 
 .productos {
   display: flex;
@@ -181,25 +182,25 @@ header {
 }
 
 
+/*  carrito de compras */
+
+
 
 .carrito {
   display: flex;
   flex-direction: column;
 
-
 }
 
-
-
-
+/* es el div que contiene cada linea de carrito */
 .item-carrito {
+  
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  align-content: space-around;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #000000;
   border-radius: 4px;
   margin-bottom: 10px;
   background-color: rgb(212, 127, 82);
@@ -221,17 +222,10 @@ header {
 
 }
 
-.item-carrito img {
-  width: 4vmax;
-  border-radius: 5px;
-  border: solid 2px rgb(19, 107, 78);
-}
-
 .inputCantidadDiv {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-
   padding: 3px;
 }
 
@@ -239,23 +233,26 @@ header {
   border: 2px solid rgba(0, 0, 0, 0.887);
   border-radius: 5px;
   padding: 2px 5px;
-}
-
-.item-carrito input {
   min-width: 25px;
   max-width: 60px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin: 0 8px;
+}
+
+.item-carrito img {
+  width: 4vmax;
+  border-radius: 5px;
+  border: solid 2px rgb(19, 107, 78);
 }
 
 .item-carrito p {
-  font-size: 1.6vmax;
+  font-size: 1.5vmax;
   font-family: "Bebas Neue", sans-serif;
   color: rgb(27, 26, 26);
   padding-top: 1vmax;
 }
 
 
+/* gral de todos los botones */
 button {
   padding: 10px 15px;
   background-color: #16191b;
@@ -264,23 +261,19 @@ button {
   border-radius: 4px;
   cursor: pointer;
   
-  
 }
-
-
 
 button:hover {
-  background-color: #16191b;
+  background-color: #4a5b66;
 }
 
-
+/* especifico */
 .botonEliminar {
   width: 15%;
   font-size: 1vmax;
-
 }
 
-
+/* elemento total, informativo, al final del carrito, antes de comprar */
 .total-margin {
   margin-top: 20px; 
   font-size: 2vmax;
@@ -298,41 +291,72 @@ button:hover {
 }
 
 
+/* FOOTER */
+
+/* es la clase del mismo footer */
 .pieDePagina {
   background-color: black;
-  /* height: 35vmax; */
-  width: 100%;
-}
-
-.columnaLogoFooter {
   display: flex;
-  flex-flow: column wrap;
-  align-content: center;
+  flex-flow: row wrap;
 }
 
-.logoFooter {
-  width: 20vmax;
-  margin: 5vmax;
- 
+/* div contenedor */
+.rowFooter {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .textosFooter {
   color: white;
   display: flex;
   flex-flow: column wrap;
-  align-content: center;
+  align-content: center;  
+  padding-top: 1vmax;
+  width: 60%;
 } 
 
-.rowFooter {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-
+.textosFooter h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3.5vmax;
+  padding-top: 2vmax;
+  padding-bottom: 2vmax;
 }
 
+.textosFooter p {
+  font-size: 1.8vmax;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.redes {
+  font-size: 2.5vmax;
+  margin-right: 2.5vmax;
+}
+
+.columnaLogoFooter {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  width: 40%;
+}
+
+.logoFooter {
+  width: 20vmax;
+  margin: 5vmax;
+}
+
+
+
+
+
 .derechos {
-  margin-bottom: 1vmax;
+  margin-top: 2vmax;
+  width: 100%;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.5vmax;
 }
 
 
@@ -367,53 +391,33 @@ MEDIAS QUERIES
 @media (max-width: 991.98px) {
   /* Estilos para dispositivos medianos (desktops) */
 
-  .navbar {
-    height: 9vmax;
-  }
-
+  
+ 
   header {
     height: 45vmax;
+    margin-top: 5vmax;
   } 
 
   .titulosHeader h2 {
-    text-align: left;
-    font-size: 1.8vmax;
-    padding: 0;
+    font-size: 1.5vmax;
+    
   }
 
-  .container2 {
-    padding: 20px;
-    width: 85%;
-    margin: 6rem 3rem;
-  
+  .fotozapa {
+    width: 15vmax;
   }
-
-  
-  .item-carrito {
-    padding: 25px;
-  }
-
-  
-  .item-carrito img {
-    width: 4.5vmax;
-  }
-
-  /* 
-  .item-carrito input {
-    min-width: 25px;
-    max-width: 60px;
-  } */
 
   .item-carrito p {
-    font-size: 3vmax;
+    font-size: 2.2vmax;
     padding-top: 1vmax;
   }
 
+
   .botonEliminar {
-    width: 20%;
+    /* width: 20%; */
     margin-left: 70%;
-    font-size: 2vmax;
-  
+    padding: 0.4vmax 0.6vmax;
+    font-size: 1.5vmax;
   }
  
   
@@ -421,6 +425,20 @@ MEDIAS QUERIES
     width: 6vmax;
   }
 
+  .vaciarCarritoBoton {
+    font-size: 2vmax;
+  }
+  .botonComprar {
+    font-size: 3vmax;
+    width: 30%;
+  }
+
+  .total-margin {
+    font-size: 4vmax;
+  }
+
+
+  /* footer */
 
 }
 
@@ -429,13 +447,11 @@ MEDIAS QUERIES
   /* Estilos para dispositivos pequeños (tablets) */
 
   .navbar {
-    height: 12vmax;
+    height: 8.5vmax;
   }
 
   .fotoNav {
     width: 25vmax;
-    margin: 0;
-    padding: 0;
   }
 
   .navMonto {
@@ -443,14 +459,13 @@ MEDIAS QUERIES
     flex-direction: column wrap;
   }
 
-
   header {
     height: 45vmax;
-    margin-top: 12vmax;
+    margin-top: 8vmax;
   }
 
   .fotozapa {
-    width: 30vmax;
+    width: 25vmax;
   }
 
   .item-carrito img {
@@ -458,25 +473,40 @@ MEDIAS QUERIES
   }
   
   .item-carrito p {
-    padding-top: 2vmax;
-    margin-top: 1vmax;
+    font-size: 3vmax;
+    padding-top: 1vmax;
   }
- 
+
+  .botonEliminar {
+    width: 20%;
+    margin-left: 70%;
+    padding: 0.6vmax 0.8vmax;
+    font-size: 2vmax;
+  }
+
+  .vaciarCarritoBoton {
+    font-size: 2.5vmax;
+  }
+
+  .botonComprar {
+    font-size: 3vmax;
+  }
+
+/* 
+  .pieDePagina {
+    margin-left: 0;
+    margin-right: 0;
+  }
+ */
 }
 
 
 @media (max-width: 599.98px) {
   /* Estilos para dispositivos pequeños (tablets) */
-
   header {
     height: 45vmax;
-    margin-top: 12vmax;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    margin-top: 8vmax;
   }
-
-  
 }
 
 
@@ -485,19 +515,13 @@ MEDIAS QUERIES
   /* Estilos para dispositivos extra pequeños (phones) */
 
   .navbar {
-    height: 25vmax;
+    height: 15vmax;
   }
  
-  .fotoNav {
-    width: 40vmax;
-    margin: 0;
-    padding: 0;
-   
-  } 
-
   .divNav {
     display: flex;
     flex-flow: column wrap;
+    
   }
 
   .navCarrito {
@@ -508,38 +532,38 @@ MEDIAS QUERIES
     display: none;
   }
 
-
   header {
     height: 60vmax;
     display: flex;
     flex-flow: row nowrap;
-    margin-top: 25vmax;
+    margin-top: 8vmax;
+    
   }
-
+ 
  .rowHeader {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
   border: solid 3px black;
   text-align: center;
   padding: 6vmax 2vmax;
-
  }
+
  .titulosHeader {
   align-items: center;
  }
 
  .titulosHeader span {
-  font-size: 2vmax;
+  font-size: 1.7vmax;
   border-top: solid 1px rgba(0, 0, 0, 0.88);
-  
 }
   .titulosHeader h1 {
     font-size: 10vmax;
     line-height: 0.8;
     text-align: center;
-  
+    padding-top: 2.5vmax;
+    padding-bottom: 2vmax;
   }
 
   .titulosHeader h2 {
@@ -547,75 +571,76 @@ MEDIAS QUERIES
     border-bottom: solid 1px rgba(0, 0, 0, 0.88);
   }
 
-  
-  /* .fotozapa {
-    width: 45vmax;
+  .fotozapa {
+    width: 40vmax;
   }
- */
-  
-.botonEliminar {
-  width: 30%;
-  margin-left: 50%;
-  font-size: 2vmax;
-}
 
-.total-margin {
-  font-size: 3vmax;
-}
+  .botonEliminar {
+    width: 30%;
+    margin-left: 50%;
+    font-size: 2vmax;
+    padding: 0.5vmax 1vmax;
+    
+  }
 
-.botonComprar {
-  font-size: 3vmax;
-  width: 20vmax;
-}
+  .total-margin {
+    font-size: 3vmax;
+  }
 
-
-.producto {
-  width: 80%;
-}
+  .botonComprar {
+    font-size: 3vmax;
+    width: 20vmax;
+  }
 
 
-.fotozapa {
-  width: 85%;
-}
+ 
 
 }
+
+
 
 
 @media (max-width: 424.98px) {
   /* Estilos para dispositivos extra pequeños (phones) */
 
-  
-  .container2 {
-    padding: 15px;
-    width: 80%;
-    margin: 6rem auto;
-  
-  }
+ .fotozapa {
+  width: 25vmax;
+}
 
 }
+
+
 
 @media (max-width: 374.98px) {
   /* Estilos para dispositivos extra pequeños (phones) */
 
-  
-  .fotozapa {
-    width: 30vmax;
-  }
+.primerBloque {
+  flex-flow: row wrap;
+}
 
-   
+.segundoBloque {
+  flex-flow: column wrap;
+}
+
 .botonEliminar {
   width: 50%;
   padding: 4px 6px;
+  margin: 0 auto;
 
 }
 }
+
+
+
+
+
+
+
 
 @media (max-width: 319.98px) {
   /* Estilos para dispositivos extra pequeños (phones) */
 
-
 }
-
 
 @media (max-width: 279.98px) {
   /* Estilos para dispositivos extra pequeños (phones) */
