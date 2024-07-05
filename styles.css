@@ -571,16 +571,24 @@ MEDIAS QUERIES
     border-bottom: solid 1px rgba(0, 0, 0, 0.88);
   }
 
+  .productos {
+    width: 85% auto;
+  }
+
   .fotozapa {
-    width: 40vmax;
+    width: 80%;
   }
 
   .botonEliminar {
-    width: 30%;
-    margin-left: 50%;
+    width: 40%;
+    margin: 0;
     font-size: 2vmax;
     padding: 0.5vmax 1vmax;
     
+  }
+
+  .vaciarCarritoBoton {
+    font-size: 2vmax;
   }
 
   .total-margin {
@@ -592,8 +600,11 @@ MEDIAS QUERIES
     width: 20vmax;
   }
 
-
- 
+  
+  .item-carrito p {
+    font-size: 3vmax;
+    padding-top: 0.6vmax;
+  }
 
 }
 
@@ -602,10 +613,6 @@ MEDIAS QUERIES
 
 @media (max-width: 424.98px) {
   /* Estilos para dispositivos extra pequeños (phones) */
-
- .fotozapa {
-  width: 25vmax;
-}
 
 }
 
